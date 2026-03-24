@@ -1,0 +1,4 @@
+400a8d8 style: revert tailwind global config to keep size increases moderate
+2c28c36 style: increase global font hierarchy by 4px
+36b7df3 feat: improve typography and add image upload for dashboard
+74c7518 Fix build issues: Restore tsconfig and relax strict unused checks

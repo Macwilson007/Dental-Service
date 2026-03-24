@@ -55,8 +55,8 @@ export function Navbar() {
               <Diamond size={8} className="absolute -top-1 -right-1 text-gold" weight="fill" />
            </div>
            <div className="flex flex-col">
-              <span className="text-sm font-bold tracking-[0.5em] uppercase text-onyx/80">DENTAL SERVICE</span>
-              <span className="text-xs font-bold tracking-[0.2em] uppercase text-gold/60 mt-0.5">EST. 2026</span>
+              <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-onyx/80">DENTAL SERVICE</span>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gold/60 mt-0.5">EST. 2026</span>
            </div>
         </Link>
 
@@ -68,7 +68,7 @@ export function Navbar() {
                 {link.path ? (
                   <Link 
                     to={link.path}
-                    className="text-sm font-bold tracking-[0.3em] uppercase text-onyx/40 hover:text-gold transition-colors relative group"
+                    className="text-[10px] font-bold tracking-[0.3em] uppercase text-onyx/40 hover:text-gold transition-colors relative group"
                   >
                     {link.name}
                     <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold transition-all duration-500 group-hover:w-full" />
@@ -77,7 +77,7 @@ export function Navbar() {
                   <Link
                     to={`/#${link.id}`}
                     onClick={() => handleLinkClick(link.id)}
-                    className="text-sm font-bold tracking-[0.3em] uppercase text-onyx/40 hover:text-gold transition-colors relative group underline-none"
+                    className="text-[10px] font-bold tracking-[0.3em] uppercase text-onyx/40 hover:text-gold transition-colors relative group underline-none"
                   >
                     {link.name}
                     <span className="absolute -bottom-2 left-0 w-0 h-[1px] bg-gold transition-all duration-500 group-hover:w-full" />
@@ -208,9 +208,9 @@ export function Navbar() {
                   </Link>
                 )}
                 <div className="flex justify-center gap-10 opacity-30">
-                   <span className="text-sm font-bold tracking-widest uppercase">LONDON</span>
-                   <span className="text-sm font-bold tracking-widest uppercase">SYDNEY</span>
-                   <span className="text-sm font-bold tracking-widest uppercase">NYC</span>
+                   <span className="text-[10px] font-bold tracking-widest uppercase">LONDON</span>
+                   <span className="text-[10px] font-bold tracking-widest uppercase">SYDNEY</span>
+                   <span className="text-[10px] font-bold tracking-widest uppercase">NYC</span>
                 </div>
              </div>
           </motion.div>

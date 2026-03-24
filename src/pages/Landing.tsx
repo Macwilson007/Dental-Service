@@ -37,7 +37,7 @@ export function Landing() {
                       transition={{ delay: 0.5, duration: 1 }}
                       className="h-[1px] bg-gold"
                     />
-                    <span className="text-sm font-bold tracking-[0.5em] uppercase text-gold">Elite Clinical Standards</span>
+                    <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-gold">Elite Clinical Standards</span>
                  </div>
                  
                  <h1 className="text-7xl lg:text-[10vw] font-serif leading-[0.9] tracking-tighter mb-10 selection:bg-gold/40">
@@ -54,7 +54,7 @@ export function Landing() {
                        RESERVE YOUR VISIT
                        <ArrowRight size={14} className="group-hover:translate-x-2 transition-transform duration-500" />
                     </Link>
-                    <Link to="/services" className="text-sm font-bold tracking-[0.4em] uppercase py-5 border-b border-onyx/10 hover:border-onyx transition-colors">
+                    <Link to="/services" className="text-[10px] font-bold tracking-[0.4em] uppercase py-5 border-b border-onyx/10 hover:border-onyx transition-colors">
                        DISCOVER THE SERVICES
                     </Link>
                  </div>
@@ -79,7 +79,7 @@ export function Landing() {
                  {/* Floating Signature */}
                  <div className="absolute top-10 right-10 flex flex-col items-end opacity-20">
                     <Diamond size={32} weight="light" className="text-gold mb-2" />
-                    <span className="text-xs font-bold tracking-[0.6em] uppercase">Private Practice</span>
+                    <span className="text-[10px] font-bold tracking-[0.6em] uppercase">Private Practice</span>
                  </div>
               </motion.div>
            </div>
@@ -87,7 +87,7 @@ export function Landing() {
 
         {/* Vertical Text Branding */}
         <div className="absolute bottom-10 left-10 hidden xl:flex flex-col items-start gap-4 transform rotate-180 [writing-mode:vertical-lr] opacity-10">
-           <span className="text-sm font-bold tracking-[1em] uppercase">MODERN CONCIERGE DENTISTRY</span>
+           <span className="text-[10px] font-bold tracking-[1em] uppercase">MODERN CONCIERGE DENTISTRY</span>
         </div>
       </section>
 
@@ -102,7 +102,7 @@ export function Landing() {
                  viewport={{ once: true }}
                  transition={{ duration: 1 }}
                >
-                  <span className="text-sm font-bold tracking-[0.6em] uppercase text-gold/60 block mb-8">Our Philosophy</span>
+                  <span className="text-[10px] font-bold tracking-[0.6em] uppercase text-gold/60 block mb-8">Our Philosophy</span>
                   <h2 className="text-6xl lg:text-8xl font-serif font-light leading-[0.8] mb-12 tracking-tighter">
                     Clinical <br /> 
                     <span className="italic font-normal text-gold">Purity.</span>
@@ -123,16 +123,16 @@ export function Landing() {
                
                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 pt-12 border-t border-cream/5">
                   <div className="space-y-4">
-                     <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-gold">01. Bio-Integration</h3>
-                     <p className="text-sm tracking-widest leading-relaxed text-cream/20">Our treatments are synchronized with your natural aesthetics, ensuring structural integrity and cellular-level compatibility.</p>
+                     <h3 className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">01. Bio-Integration</h3>
+                     <p className="text-[10px] tracking-widest leading-relaxed text-cream/20">Our treatments are synchronized with your natural aesthetics, ensuring structural integrity and cellular-level compatibility.</p>
                   </div>
                   <div className="space-y-4">
-                     <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-gold">02. Digital Artisanship</h3>
-                     <p className="text-sm tracking-widest leading-relaxed text-cream/20">We leverage ultra-high-resolution imaging and AI-driven precision to design smile architectures that are uniquely yours.</p>
+                     <h3 className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">02. Digital Artisanship</h3>
+                     <p className="text-[10px] tracking-widest leading-relaxed text-cream/20">We leverage ultra-high-resolution imaging and AI-driven precision to design smile architectures that are uniquely yours.</p>
                   </div>
                   <div className="space-y-4">
-                     <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-gold">03. Concierge Sovereignty</h3>
-                     <p className="text-sm tracking-widest leading-relaxed text-cream/20">Your time is your most finite resource. Our zero-wait protocol and private consultation suites respect your autonomy.</p>
+                     <h3 className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">03. Concierge Sovereignty</h3>
+                     <p className="text-[10px] tracking-widest leading-relaxed text-cream/20">Your time is your most finite resource. Our zero-wait protocol and private consultation suites respect your autonomy.</p>
                   </div>
                </div>
             </div>
@@ -144,14 +144,14 @@ export function Landing() {
          <div className="section-container">
             <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-32 gap-12">
                <div className="max-w-3xl space-y-8">
-                  <span className="text-sm font-bold tracking-[0.6em] uppercase text-gold/60 block">The Portfolio</span>
+                  <span className="text-[10px] font-bold tracking-[0.6em] uppercase text-gold/60 block">The Portfolio</span>
                   <h2 className="text-7xl lg:text-[10vw] font-serif tracking-tighter mb-8 leading-[0.8]">Clinical <br /> <span className="font-light italic text-gold">Modules.</span></h2>
                </div>
                <div className="flex flex-col gap-6 items-start">
                   <p className="text-sm font-serif italic text-onyx/40 max-w-xs leading-relaxed">
                     A curated spectrum of restorative and aesthetic interventions delivered with architectural precision.
                   </p>
-                  <Link to="/book" className="group flex items-center gap-6 text-sm font-bold tracking-[0.4em] uppercase text-gold border-b border-gold/10 pb-2 hover:border-gold transition-all">
+                  <Link to="/book" className="group flex items-center gap-6 text-[10px] font-bold tracking-[0.4em] uppercase text-gold border-b border-gold/10 pb-2 hover:border-gold transition-all">
                      Reserve Visit <ArrowRight size={12} className="group-hover:translate-x-2 transition-transform" />
                   </Link>
                </div>
@@ -170,7 +170,7 @@ export function Landing() {
          <div className="section-container">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-24 items-start">
                <div className="lg:col-span-4 sticky top-32 space-y-12">
-                  <span className="text-sm font-bold tracking-[0.6em] uppercase text-gold/60 block">Medical Atelier</span>
+                  <span className="text-[10px] font-bold tracking-[0.6em] uppercase text-gold/60 block">Medical Atelier</span>
                   <h2 className="text-6xl lg:text-7xl font-serif tracking-tight leading-[0.9]">The Senior <br /> <span className="italic font-light">Artisans.</span></h2>
                   <p className="text-sm tracking-widest font-medium leading-loose text-onyx/40 max-w-sm">
                     Our clinicians are globally recognized surgeons and aesthetic engineers, dedicated to the mastery of biological dentistry.
@@ -190,12 +190,12 @@ export function Landing() {
                        <div className="aspect-[4/5] bg-onyx overflow-hidden relative">
                           <img src={clinician.imageUrl} className="w-full h-full object-cover grayscale opacity-60 group-hover:opacity-100 group-hover:scale-105 transition-all duration-1000" alt={clinician.name} />
                           <div className="absolute inset-x-8 bottom-8">
-                             <span className="text-xs font-bold tracking-[0.5em] uppercase text-gold/80 bg-onyx/90 px-4 py-2 backdrop-blur-sm">{clinician.role}</span>
+                             <span className="text-[10px] font-bold tracking-[0.5em] uppercase text-gold/80 bg-onyx/90 px-4 py-2 backdrop-blur-sm">{clinician.role}</span>
                           </div>
                        </div>
                        <div className="space-y-2 px-2">
                           <h4 className="text-3xl font-serif tracking-tight">{clinician.name}</h4>
-                          <p className="text-sm font-bold tracking-[0.4em] uppercase text-onyx/30">{clinician.education}</p>
+                          <p className="text-[10px] font-bold tracking-[0.4em] uppercase text-onyx/30">{clinician.education}</p>
                           <p className="text-xs text-onyx/40 leading-relaxed pt-4 font-serif italic italic max-w-sm">"{clinician.quote}"</p>
                        </div>
                     </motion.div>

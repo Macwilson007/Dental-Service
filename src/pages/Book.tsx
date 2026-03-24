@@ -83,14 +83,14 @@ export function Book() {
              <div className="flex gap-8">
                 <div className="text-gold"><Clock size={32} weight="light" /></div>
                 <div>
-                   <h4 className="text-sm font-bold tracking-widest uppercase mb-2">Zero-Wait Protocol</h4>
+                   <h4 className="text-[10px] font-bold tracking-widest uppercase mb-2">Zero-Wait Protocol</h4>
                    <p className="text-sm font-light text-onyx/40 leading-relaxed">Our clinical scheduling ensures you are seen within 180 seconds of arrival.</p>
                 </div>
              </div>
              <div className="flex gap-8">
                 <div className="text-gold"><ShieldCheck size={32} weight="light" /></div>
                 <div>
-                   <h4 className="text-sm font-bold tracking-widest uppercase mb-2">Private Consultation</h4>
+                   <h4 className="text-[10px] font-bold tracking-widest uppercase mb-2">Private Consultation</h4>
                    <p className="text-sm font-light text-onyx/40 leading-relaxed">Discrete entry and departures available upon request for high-profile clients.</p>
                 </div>
              </div>
@@ -107,38 +107,38 @@ export function Book() {
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-12">
                <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                   <div className="space-y-3">
-                     <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">CLIENT IDENTIFICATION</label>
+                     <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">CLIENT IDENTIFICATION</label>
                      <input 
                         {...register('fullName')}
                         placeholder="Johnathan D. Patient"
                         className="w-full bg-transparent border-b border-onyx/10 p-4 focus:outline-none focus:border-gold transition-all font-serif text-xl"
                      />
-                     {errors.fullName && <p className="text-xs text-red-500 font-bold uppercase tracking-widest pt-2">{errors.fullName.message}</p>}
+                     {errors.fullName && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest pt-2">{errors.fullName.message}</p>}
                   </div>
                   <div className="space-y-3">
-                     <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">PRIMARY CHANNEL (EMAIL)</label>
+                     <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">PRIMARY CHANNEL (EMAIL)</label>
                      <input 
                         {...register('email')}
                         type="email"
                         placeholder="your@email.com"
                         className="w-full bg-transparent border-b border-onyx/10 p-4 focus:outline-none focus:border-gold transition-all font-serif text-xl"
                      />
-                     {errors.email && <p className="text-xs text-red-500 font-bold uppercase tracking-widest pt-2">{errors.email.message}</p>}
+                     {errors.email && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest pt-2">{errors.email.message}</p>}
                   </div>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
                   <div className="space-y-3">
-                     <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">SECURE CONTACT (MOBILE)</label>
+                     <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">SECURE CONTACT (MOBILE)</label>
                      <input 
                         {...register('phone')}
                         placeholder="+44 7000 000000"
                         className="w-full bg-transparent border-b border-onyx/10 p-4 focus:outline-none focus:border-gold transition-all font-serif text-xl"
                      />
-                     {errors.phone && <p className="text-xs text-red-500 font-bold uppercase tracking-widest pt-2">{errors.phone.message}</p>}
+                     {errors.phone && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest pt-2">{errors.phone.message}</p>}
                   </div>
                   <div className="space-y-3">
-                     <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">REQUIRED PROTOCOL</label>
+                     <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">REQUIRED PROTOCOL</label>
                      <select 
                         {...register('serviceType')}
                         className="w-full bg-transparent border-b border-onyx/10 p-4 focus:outline-none focus:border-gold transition-all font-serif text-xl appearance-none"
@@ -149,22 +149,22 @@ export function Book() {
                         <option value="precision">Restorative Precision</option>
                         <option value="urgent">Concierge Diagnostics</option>
                      </select>
-                     {errors.serviceType && <p className="text-xs text-red-500 font-bold uppercase tracking-widest pt-2 text-right">{errors.serviceType.message}</p>}
+                     {errors.serviceType && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest pt-2 text-right">{errors.serviceType.message}</p>}
                   </div>
                </div>
 
                <div className="grid grid-cols-1 md:grid-cols-2 gap-12 pt-8">
                   <div className="space-y-3">
-                     <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">PREFERRED DATE</label>
+                     <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">PREFERRED DATE</label>
                      <input 
                         {...register('preferredDate')}
                         type="date"
                         className="w-full bg-transparent border-b border-onyx/10 p-4 focus:outline-none focus:border-gold transition-all font-serif text-xl"
                      />
-                     {errors.preferredDate && <p className="text-xs text-red-500 font-bold uppercase tracking-widest pt-2">{errors.preferredDate.message}</p>}
+                     {errors.preferredDate && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest pt-2">{errors.preferredDate.message}</p>}
                   </div>
                   <div className="space-y-3">
-                     <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">TIME WINDOW</label>
+                     <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">TIME WINDOW</label>
                      <select 
                         {...register('preferredTime')}
                         className="w-full bg-transparent border-b border-onyx/10 p-4 focus:outline-none focus:border-gold transition-all font-serif text-xl appearance-none"
@@ -174,12 +174,12 @@ export function Book() {
                         <option value="mid">Mid-Day (11am - 2pm)</option>
                         <option value="pm">Afternoon (2pm - 5pm)</option>
                      </select>
-                     {errors.preferredTime && <p className="text-xs text-red-500 font-bold uppercase tracking-widest pt-2 text-right">{errors.preferredTime.message}</p>}
+                     {errors.preferredTime && <p className="text-[10px] text-red-500 font-bold uppercase tracking-widest pt-2 text-right">{errors.preferredTime.message}</p>}
                   </div>
                </div>
 
                <div className="space-y-3 pt-8">
-                  <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold">CLINICAL NOTES & REQUESTS</label>
+                  <label className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">CLINICAL NOTES & REQUESTS</label>
                   <textarea 
                      {...register('notes')}
                      rows={4}
@@ -197,7 +197,7 @@ export function Book() {
 
                <div className="flex items-center gap-4 justify-center pt-8 opacity-20 group">
                   <ShieldCheck size={20} className="text-gold" />
-                  <p className="text-xs font-bold tracking-[0.1em] uppercase group-hover:opacity-100 transition-opacity">HIPAA SECURE & END-TO-END ENCRYPTED</p>
+                  <p className="text-[10px] font-bold tracking-[0.1em] uppercase group-hover:opacity-100 transition-opacity">HIPAA SECURE & END-TO-END ENCRYPTED</p>
                </div>
             </form>
           </motion.div>
