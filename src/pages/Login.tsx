@@ -45,12 +45,12 @@ export function Login() {
                 <span className="text-xl font-serif font-bold text-cream">DS</span>
             </div>
             <h2 className="text-4xl font-serif text-cream italic font-light tracking-tight mb-4">Patient Login</h2>
-            <p className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold/60 text-center">Secure Health Dossier Access</p>
+            <p className="text-sm font-bold tracking-[0.4em] uppercase text-gold/60 text-center">Secure Health Dossier Access</p>
         </div>
 
         <form onSubmit={handleLogin} className="space-y-12">
             <div className="space-y-4">
-               <label className="text-[9px] font-bold tracking-[0.4em] uppercase text-gold/40">IDENTIFICATION (EMAIL)</label>
+               <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold/40">IDENTIFICATION (EMAIL)</label>
                <div className="relative group">
                   <User size={20} weight="light" className="absolute left-0 top-1/2 -translate-y-1/2 text-gold/30 group-focus-within:text-gold transition-colors" />
                   <input 
@@ -65,7 +65,7 @@ export function Login() {
             </div>
 
             <div className="space-y-4">
-               <label className="text-[9px] font-bold tracking-[0.4em] uppercase text-gold/40">SECURE PASSPHRASE</label>
+               <label className="text-xs font-bold tracking-[0.4em] uppercase text-gold/40">SECURE PASSPHRASE</label>
                <div className="relative group">
                   <Key size={20} weight="light" className="absolute left-0 top-1/2 -translate-y-1/2 text-gold/30 group-focus-within:text-gold transition-colors" />
                   <input 
@@ -80,7 +80,7 @@ export function Login() {
             </div>
 
            <div className="flex justify-end pt-4">
-              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-gold/40 hover:text-gold cursor-pointer transition-colors">FORGOT PASSPHRASE</span>
+              <span className="text-sm font-bold tracking-[0.2em] uppercase text-gold/40 hover:text-gold cursor-pointer transition-colors">FORGOT PASSPHRASE</span>
            </div>
 
            <button type="submit" className="btn-premium w-full !py-8 bg-gold text-onyx hover:bg-cream hover:text-onyx active:scale-[0.98]">
@@ -88,19 +88,19 @@ export function Login() {
            </button>
            
            <div className="flex flex-col items-center gap-10 pt-16">
-              <div className="text-[10px] font-bold tracking-widest text-gold/30 hover:text-gold transition-colors cursor-help group relative">
+              <div className="text-sm font-bold tracking-widest text-gold/30 hover:text-gold transition-colors cursor-help group relative">
                  ADMIN PROTOCOL: admin@ds.clinic
                  <div className="absolute -top-12 left-1/2 -translate-x-1/2 bg-onyx border border-gold/20 p-3 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap pointer-events-none">
-                    <span className="text-[8px] text-gold uppercase tracking-tighter">Use this for administrative access</span>
+                    <span className="text-xs text-gold uppercase tracking-tighter">Use this for administrative access</span>
                  </div>
               </div>
-              <Link to="/" className="text-[9px] font-bold tracking-[0.3em] uppercase opacity-30 hover:opacity-100 transition-opacity text-cream flex items-center gap-4 group">
+              <Link to="/" className="text-xs font-bold tracking-[0.3em] uppercase opacity-30 hover:opacity-100 transition-opacity text-cream flex items-center gap-4 group">
                  <ArrowRight size={14} className="rotate-180 group-hover:-translate-x-2 transition-transform" />
                  RETURN TO HOME
               </Link>
               <div className="flex items-center gap-4 opacity-10">
                  <ShieldCheck size={20} className="text-gold" />
-                 <p className="text-[8px] font-bold tracking-[0.2em] uppercase text-cream">HIPAA PROTECTED ACCESS</p>
+                 <p className="text-xs font-bold tracking-[0.2em] uppercase text-cream">HIPAA PROTECTED ACCESS</p>
               </div>
            </div>
         </form>

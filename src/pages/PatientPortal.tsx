@@ -29,11 +29,11 @@ export function PatientPortal() {
            </div>
            <div className="flex gap-12 pt-8 border-l border-onyx/5 pl-12 h-fit">
               <div className="flex flex-col">
-                 <span className="text-[10px] font-bold tracking-widest uppercase opacity-40 mb-2">Sovereign Tier</span>
+                 <span className="text-sm font-bold tracking-widest uppercase opacity-40 mb-2">Sovereign Tier</span>
                  <span className="text-xl font-serif text-gold">Concierge Access</span>
               </div>
               <div className="flex flex-col">
-                 <span className="text-[10px] font-bold tracking-widest uppercase opacity-40 mb-2">Next Visit</span>
+                 <span className="text-sm font-bold tracking-widest uppercase opacity-40 mb-2">Next Visit</span>
                  <span className="text-xl font-serif text-onyx">
                    {appointments.length > 0 ? appointments[appointments.length-1].date : 'No Visits Scheduled'}
                  </span>
@@ -74,9 +74,9 @@ export function PatientPortal() {
                           <div className="flex items-center gap-12 mt-6 md:mt-0">
                              <div className="flex flex-col items-end">
                                 <span className="text-xs font-bold tracking-[0.2em] uppercase text-onyx/20 italic">{t.date}</span>
-                                <span className="text-[9px] font-bold text-gold/60 tracking-widest uppercase">{t.time}</span>
+                                <span className="text-xs font-bold text-gold/60 tracking-widest uppercase">{t.time}</span>
                              </div>
-                             <span className="text-[10px] font-bold tracking-[0.3em] uppercase w-32 px-4 py-2 text-center rounded-none shadow-sm bg-black text-gold">
+                             <span className="text-sm font-bold tracking-[0.3em] uppercase w-32 px-4 py-2 text-center rounded-none shadow-sm bg-black text-gold">
                                 SCHEDULED
                              </span>
                           </div>
@@ -100,15 +100,15 @@ export function PatientPortal() {
                  <div className="space-y-10">
                     <button className="flex items-center gap-6 w-full text-left group">
                        <div className="w-10 h-10 border border-gold/30 flex items-center justify-center transition-colors group-hover:bg-gold group-hover:text-onyx"><FileText size={20} weight="light" /></div>
-                       <span className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-60 group-hover:opacity-100 transition-all">Clinical Notes (PDF)</span>
+                       <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-60 group-hover:opacity-100 transition-all">Clinical Notes (PDF)</span>
                     </button>
                     <button className="flex items-center gap-6 w-full text-left group">
                        <div className="w-10 h-10 border border-gold/30 flex items-center justify-center transition-colors group-hover:bg-gold group-hover:text-onyx"><Calendar size={20} weight="light" /></div>
-                       <span className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-60 group-hover:opacity-100 transition-all">Medical Itinerary</span>
+                       <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-60 group-hover:opacity-100 transition-all">Medical Itinerary</span>
                     </button>
                     <button className="flex items-center gap-6 w-full text-left group">
                        <div className="w-10 h-10 border border-gold/30 flex items-center justify-center transition-colors group-hover:bg-gold group-hover:text-onyx"><ShieldCheck size={20} weight="light" /></div>
-                       <span className="text-[10px] font-bold tracking-[0.3em] uppercase opacity-60 group-hover:opacity-100 transition-all">Sovereign Privacy Policy</span>
+                       <span className="text-sm font-bold tracking-[0.3em] uppercase opacity-60 group-hover:opacity-100 transition-all">Sovereign Privacy Policy</span>
                     </button>
                  </div>
               </div>
@@ -116,8 +116,8 @@ export function PatientPortal() {
               <div className="bg-platinum/50 p-12 border border-onyx/5 flex items-center gap-6">
                  <div className="text-onyx/20"><WarningCircle size={28} weight="light" /></div>
                  <div>
-                    <h5 className="text-[10px] font-bold tracking-widest uppercase opacity-60">Confidentiality Protocol</h5>
-                    <p className="text-[10px] italic text-onyx/30 mt-1 text-balance">This dossier is end-to-end encrypted and shared only with your lead clinicians.</p>
+                    <h5 className="text-sm font-bold tracking-widest uppercase opacity-60">Confidentiality Protocol</h5>
+                    <p className="text-sm italic text-onyx/30 mt-1 text-balance">This dossier is end-to-end encrypted and shared only with your lead clinicians.</p>
                  </div>
               </div>
            </div>

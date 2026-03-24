@@ -15,6 +15,48 @@ import {
   Image
 } from '@phosphor-icons/react'
 
+function ImageUploadInput({ value, onChange, placeholder }: { value: string, onChange: (val: string) => void, placeholder?: string }) {
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (file) {
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File must be smaller than 5MB to save locally in localStorage.");
+        return;
+      }
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        onChange(reader.result as string);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
+  return (
+    <div className="flex gap-4 items-center w-full">
+      <input 
+        type="text" 
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+        className="flex-1 w-full bg-white border border-onyx/10 px-6 py-4 font-mono text-xs focus:border-gold outline-none transition-colors"
+        placeholder={placeholder || "Visual URL (CDN or Unsplash)..."}
+      />
+      <div className="relative shrink-0 border border-onyx/10 bg-white hover:border-gold transition-colors">
+        <input 
+          type="file" 
+          accept="image/*"
+          onChange={handleFileChange}
+          className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+          title="Upload Image"
+        />
+        <div className="py-4 px-6 flex items-center gap-2 text-xs font-bold tracking-widest text-onyx/60 uppercase">
+          <Image size={16} />
+          <span>UPLOAD</span>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export function AdminDashboard() {
   const { isAdmin, content, updateService, updateClinician, updateContent } = useUserStore()
   const [activeTab, setActiveTab] = useState<'hero' | 'services' | 'clinicians' | 'media'>('hero')
@@ -44,7 +86,7 @@ export function AdminDashboard() {
       <div className="section-container">
         <header className="mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
           <div>
-            <span className="text-[10px] font-bold tracking-[0.6em] uppercase text-gold/60 block mb-6">Administrative Portal</span>
+            <span className="text-sm font-bold tracking-[0.6em] uppercase text-gold/60 block mb-6">Administrative Portal</span>
             <h1 className="text-6xl font-serif tracking-tighter">Clinical <br /> <span className="italic font-light">Architecture.</span></h1>
           </div>
           <div className="flex items-center gap-4">
@@ -54,7 +96,7 @@ export function AdminDashboard() {
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   exit={{ opacity: 0 }}
-                  className="text-[10px] font-bold tracking-widest text-gold uppercase"
+                  className="text-sm font-bold tracking-widest text-gold uppercase"
                 >
                   {saveStatus}
                 </motion.span>
@@ -81,7 +123,7 @@ export function AdminDashboard() {
                 }`}
               >
                 <tab.icon size={20} weight={activeTab === tab.id ? 'fill' : 'light'} />
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase">{tab.name}</span>
+                <span className="text-sm font-bold tracking-[0.2em] uppercase">{tab.name}</span>
               </button>
             ))}
           </aside>
@@ -98,11 +140,11 @@ export function AdminDashboard() {
                   className="space-y-12"
                 >
                   <div className="bg-onyx/[0.02] p-10 border border-onyx/5 space-y-8">
-                    <h3 className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold mb-8">Digital Façade</h3>
+                    <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-gold mb-8">Digital Façade</h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
                       <div className="space-y-2">
-                        <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Headline Top</label>
+                        <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Headline Top</label>
                         <input 
                           type="text" 
                           value={content.hero.titleTop}
@@ -111,7 +153,7 @@ export function AdminDashboard() {
                         />
                       </div>
                       <div className="space-y-2">
-                        <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Headline Bottom (Italic)</label>
+                        <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Headline Bottom (Italic)</label>
                         <input 
                           type="text" 
                           value={content.hero.titleBottom}
@@ -122,7 +164,7 @@ export function AdminDashboard() {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Subtitle Dossier</label>
+                      <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Subtitle Dossier</label>
                       <textarea 
                         rows={3}
                         value={content.hero.subtitle}
@@ -132,19 +174,17 @@ export function AdminDashboard() {
                     </div>
 
                     <div className="space-y-4">
-                      <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Hero Identity Visual (URL)</label>
-                      <div className="flex gap-6 items-start">
-                        <input 
-                          type="text" 
+                      <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Hero Identity Visual (URL)</label>
+                      <div className="flex flex-col gap-6 items-start w-full">
+                        <ImageUploadInput 
                           value={content.hero.heroImageUrl}
-                          onChange={(e) => updateContent({ hero: { ...content.hero, heroImageUrl: e.target.value } })}
-                          className="flex-1 bg-white border border-onyx/10 px-6 py-4 font-mono text-xs focus:border-gold outline-none transition-colors"
+                          onChange={(val) => updateContent({ hero: { ...content.hero, heroImageUrl: val } })}
                         />
-                        <div className="w-32 aspect-square bg-onyx overflow-hidden ring-1 ring-onyx/10 shadow-lg">
+                        <div className="w-32 aspect-square bg-onyx overflow-hidden ring-1 ring-onyx/10 shadow-lg shrink-0">
                           <img src={content.hero.heroImageUrl} className="w-full h-full object-cover" alt="Hero Preview" />
                         </div>
                       </div>
-                      <button onClick={() => setActiveTab('media')} className="text-[10px] font-bold tracking-widest uppercase text-gold/40 hover:text-gold transition-colors pt-4 flex items-center gap-2">
+                      <button onClick={() => setActiveTab('media')} className="text-sm font-bold tracking-widest uppercase text-gold/40 hover:text-gold transition-colors pt-4 flex items-center gap-2">
                         <Eye size={14} /> CURATE MEDIA HUB
                       </button>
                     </div>
@@ -161,8 +201,8 @@ export function AdminDashboard() {
                   className="space-y-8"
                 >
                   <div className="flex justify-between items-center mb-10">
-                    <h3 className="text-[10px] font-bold tracking-[0.4em] uppercase text-gold">Module Inventory</h3>
-                    <button className="flex items-center gap-2 text-[9px] font-bold tracking-widest uppercase hover:text-gold transition-colors">
+                    <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-gold">Module Inventory</h3>
+                    <button className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase hover:text-gold transition-colors">
                       <Plus size={14} /> Add Module
                     </button>
                   </div>
@@ -220,7 +260,7 @@ export function AdminDashboard() {
                           <div className="flex-1 space-y-8">
                              <div className="grid grid-cols-2 gap-8">
                                 <div className="space-y-2">
-                                  <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Artisan Name</label>
+                                  <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Artisan Name</label>
                                   <input 
                                     type="text" 
                                     value={clinician.name}
@@ -229,7 +269,7 @@ export function AdminDashboard() {
                                   />
                                 </div>
                                 <div className="space-y-2">
-                                  <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Clinical Role</label>
+                                  <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Clinical Role</label>
                                   <input 
                                     type="text" 
                                     value={clinician.role}
@@ -239,7 +279,7 @@ export function AdminDashboard() {
                                 </div>
                              </div>
                              <div className="space-y-2">
-                                <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Public Quote</label>
+                                <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Public Quote</label>
                                 <textarea 
                                   value={clinician.quote}
                                   onChange={(e) => updateClinician(clinician.id, { quote: e.target.value })}
@@ -248,14 +288,12 @@ export function AdminDashboard() {
                                 />
                              </div>
                              <div className="space-y-2">
-                                <label className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Dossier Visual (URL)</label>
-                                <input 
-                                  type="text" 
+                                <label className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Dossier Visual (URL)</label>
+                                <ImageUploadInput 
                                   value={clinician.imageUrl}
-                                  onChange={(e) => updateClinician(clinician.id, { imageUrl: e.target.value })}
-                                  className="w-full bg-white border border-onyx/10 px-6 py-4 font-mono text-xs focus:border-gold outline-none transition-colors"
+                                  onChange={(val) => updateClinician(clinician.id, { imageUrl: val })}
                                 />
-                                <button onClick={() => setActiveTab('media')} className="text-[10px] font-bold tracking-widest uppercase text-gold/40 hover:text-gold transition-colors pt-4 flex items-center gap-2 justify-end w-full">
+                                <button onClick={() => setActiveTab('media')} className="text-sm font-bold tracking-widest uppercase text-gold/40 hover:text-gold transition-colors pt-4 flex items-center gap-2 justify-end w-full">
                                   <Eye size={14} /> CURATE IN ARCHIVE
                                 </button>
                              </div>
@@ -275,27 +313,25 @@ export function AdminDashboard() {
                   className="space-y-12"
                 >
                   <div className="bg-onyx/[0.02] p-10 border border-onyx/5">
-                    <h3 className="text-[11px] font-bold tracking-[0.4em] uppercase text-gold mb-12">Visual Asset Control Center</h3>
+                    <h3 className="text-sm font-bold tracking-[0.4em] uppercase text-gold mb-12">Visual Asset Control Center</h3>
                     
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
                       <div className="space-y-6">
                         <div className="flex justify-between items-end">
-                          <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Hero Identity Visual</span>
-                          <span className="text-[8px] font-mono text-onyx/20">system_hero_main</span>
+                          <span className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Hero Identity Visual</span>
+                          <span className="text-xs font-mono text-onyx/20">system_hero_main</span>
                         </div>
                         <div className="aspect-video bg-onyx overflow-hidden ring-1 ring-onyx/10 group relative">
                           <img src={content.hero.heroImageUrl} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" alt="Hero" />
                           <div className="absolute inset-0 bg-onyx/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                              <div className="p-4 bg-white/10 backdrop-blur-md border border-white/20">
-                                <span className="text-[10px] font-bold tracking-[0.2em] text-white uppercase">Primary Asset</span>
+                                <span className="text-sm font-bold tracking-[0.2em] text-white uppercase">Primary Asset</span>
                              </div>
                           </div>
                         </div>
-                        <input 
-                          type="text" 
+                        <ImageUploadInput 
                           value={content.hero.heroImageUrl}
-                          onChange={(e) => updateContent({ hero: { ...content.hero, heroImageUrl: e.target.value } })}
-                          className="w-full bg-white border border-onyx/10 px-6 py-4 font-mono text-xs focus:border-gold outline-none transition-colors"
+                          onChange={(val) => updateContent({ hero: { ...content.hero, heroImageUrl: val } })}
                           placeholder="Visual URL (CDN or Unsplash)..."
                         />
                       </div>
@@ -303,22 +339,20 @@ export function AdminDashboard() {
                       {content.clinicians.map((clinician) => (
                         <div key={clinician.id} className="space-y-6">
                           <div className="flex justify-between items-end">
-                            <span className="text-[9px] font-bold tracking-[0.3em] uppercase text-onyx/40">Staff Archive: {clinician.name}</span>
-                            <span className="text-[8px] font-mono text-onyx/20">potrait_v1_{clinician.id.slice(0,4)}</span>
+                            <span className="text-xs font-bold tracking-[0.3em] uppercase text-onyx/40">Staff Archive: {clinician.name}</span>
+                            <span className="text-xs font-mono text-onyx/20">potrait_v1_{clinician.id.slice(0,4)}</span>
                           </div>
                           <div className="aspect-video bg-onyx overflow-hidden ring-1 ring-onyx/10 group relative">
                             <img src={clinician.imageUrl} className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0" alt={clinician.name} />
                             <div className="absolute inset-0 bg-onyx/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
                                <div className="p-4 bg-white/10 backdrop-blur-md border border-white/20">
-                                  <span className="text-[10px] font-bold tracking-[0.2em] text-white uppercase">Artisan Portrait</span>
+                                  <span className="text-sm font-bold tracking-[0.2em] text-white uppercase">Artisan Portrait</span>
                                </div>
                             </div>
                           </div>
-                          <input 
-                            type="text" 
+                          <ImageUploadInput 
                             value={clinician.imageUrl}
-                            onChange={(e) => updateClinician(clinician.id, { imageUrl: e.target.value })}
-                            className="w-full bg-white border border-onyx/10 px-6 py-4 font-mono text-xs focus:border-gold outline-none transition-colors"
+                            onChange={(val) => updateClinician(clinician.id, { imageUrl: val })}
                             placeholder="Portrait Visual URL..."
                           />
                         </div>

@@ -30,7 +30,7 @@ export function ServiceCard({ title, description, icon: Icon, tag, delay = 0 }: 
       <div className="absolute inset-0 bg-gold/5 opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
       
       {tag && (
-        <span className="absolute top-10 right-10 text-[9px] font-bold tracking-[0.4em] uppercase text-gold">
+        <span className="absolute top-10 right-10 text-xs font-bold tracking-[0.4em] uppercase text-gold">
           {tag}
         </span>
       )}
@@ -47,7 +47,7 @@ export function ServiceCard({ title, description, icon: Icon, tag, delay = 0 }: 
         {description}
       </p>
 
-      <div className="mt-14 flex items-center gap-4 text-[10px] font-bold tracking-[0.3em] uppercase text-onyx/20 group-hover:text-gold transition-colors duration-1000">
+      <div className="mt-14 flex items-center gap-4 text-sm font-bold tracking-[0.3em] uppercase text-onyx/20 group-hover:text-gold transition-colors duration-1000">
         PROTOCOL DETAILS
         <ArrowRight size={14} className="group-hover:translate-x-4 transition-transform duration-1000" />
       </div>
