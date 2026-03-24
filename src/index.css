@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-onyx: #121418;
+  --color-gold: #C5A059;
+  --color-cream: #F8F5F2;
+  --color-platinum: #E5E5E5;
+}
+
+body {
+  @apply font-sans antialiased bg-cream text-onyx selection:bg-gold/30;
+}
+
+h1, h2, h3, .font-serif {
+  font-family: 'Cormorant Garamond', serif;
+  @apply font-medium tracking-tight;
+}
+
+/* Premium Component Classes */
+.btn-premium {
+  @apply px-10 py-5 bg-onyx text-cream font-medium tracking-[0.2em] uppercase text-[10px] transition-all duration-500 hover:bg-gold hover:text-onyx relative overflow-hidden active:scale-95;
+}
+
+.btn-premium-outline {
+  @apply px-10 py-5 border border-onyx text-onyx font-medium tracking-[0.2em] uppercase text-[10px] transition-all duration-500 hover:bg-onyx hover:text-cream active:scale-95;
+}
+
+.section-container {
+  @apply max-w-screen-2xl mx-auto px-6 lg:px-24;
+}
+
+.glass-card {
+  @apply bg-white/40 backdrop-blur-xl border border-white/20 shadow-sm;
+}
+
+.label-luxury {
+  @apply text-[10px] font-bold tracking-[0.4em] uppercase text-gold mb-4 block;
+}
+
+/* Custom Scrollbar for Premium Feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-cream;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-onyx/10 hover:bg-gold/50 transition-colors;
+}
+
+@keyframes slowPan {
+  from { transform: scale(1); }
+  to { transform: scale(1.1); }
+}
+
+.animate-slow-pan {
+  animation: slowPan 20s ease-in-out infinite alternate;
+}
